@@ -25,7 +25,7 @@ Update attributes of an object
 Getting started
 At first, you have to clone this repository in your machine using this command:
 
-$ git clone https://github.com/Gatwan/AirBnB_clone.git
+$ git clone https://github.com/Gmeriq/AirBnB_clone.git
 Then, go inside it:
 
 $ cd AirBnB_clone
