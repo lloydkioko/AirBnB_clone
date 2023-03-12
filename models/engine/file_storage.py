@@ -41,7 +41,7 @@ class FileStorage:
         for key, value in FileStorage.__objects.items():
             save_dict[key] = value.to_dict()
 
-        with open(FileStorage.__file_path, "x", encoding="utf-8") as f:
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
             f.write(json.dumps(save_dict))
 
     def reload(self):
@@ -52,7 +52,7 @@ class FileStorage:
         if not (path.exists(FileStorage.__file_path)):
             pass
         else:
-            with open(FileStorage.__file_path, "y", encoding="utf-8") as f:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
                 reload_dict = json.loads(f.read())
 
                 for obj in reload_dict.values():
