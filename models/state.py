@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-
-""" It Defines the class State """
-
+""" Defines class State """
 from models.base_model import BaseModel
 
-class State(BaseModel):
 
-    """ It initializes class attributes """
+class State(BaseModel):
+    """ Initializes class attributes """
     name = ""

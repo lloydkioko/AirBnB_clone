@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-
-""" It Defines the Review class """
-
+""" Defines Review class """
 from models.base_model import BaseModel
 
-class Review(BaseModel):
 
-    """ It intializes the class attributes """
+class Review(BaseModel):
+    """ Initializes class attributes """
     place_id = ""
     user_id = ""
     text = ""
