@@ -1,46 +1,35 @@
 #!/usr/bin/python3
-
 """
-The Unittest for amenity.py
+Unittest for amenity.py
 """
-
 import unittest
 from models.state import State
 import datetime
 
 
 class TestState(unittest.TestCase):
-    
-    """ The Tests instances and methods from State class """
+    """ Tests instances and methods from State class """
 
     s = State()
 
     def test_class_exists(self):
-        
-        """It tests if class exists"""
-        
+        """tests if class exists"""
         res = "<class 'models.state.State'>"
         self.assertEqual(str(type(self.s)), res)
 
     def test_user_inheritance(self):
-        
-        """It tests if State is a subclass of BaseModel"""
-        
+        """test if State is a subclass of BaseModel"""
         self.assertIsInstance(self.s, State)
 
     def testHasAttributes(self):
-        
-        """It is used to verify if attributes exist"""
-        
+        """verify if attributes exist"""
         self.assertTrue(hasattr(self.s, 'name'))
         self.assertTrue(hasattr(self.s, 'id'))
         self.assertTrue(hasattr(self.s, 'created_at'))
         self.assertTrue(hasattr(self.s, 'updated_at'))
 
     def test_types(self):
-        
-        """It tests if the type of the attribute is the correct one"""
-        
+        """tests if the type of the attribute is the correct one"""
         self.assertIsInstance(self.s.name, str)
         self.assertIsInstance(self.s.id, str)
         self.assertIsInstance(self.s.created_at, datetime.datetime)
