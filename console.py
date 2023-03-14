@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-
-"""The Entry point for the command interpreter """
-
+"""Entry point for the command interpreter """
 import cmd
 import re
 import models
@@ -16,9 +14,7 @@ from models.review import Review
 
 
 def isfloat(arg):
-
-    """It Checks if argument is a float data type variable"""
-    
+    """Checks if argument is a float data type variable"""
     try:
         float(arg)
         return True
@@ -27,9 +23,7 @@ def isfloat(arg):
 
 
 def type_parser(arg):
-    
-    """To Check data type of arg and cast it"""
-    
+    """Check data type of arg and cast it"""
     if arg.isalpha():
         pass
     elif arg.isdigit():
@@ -40,7 +34,6 @@ def type_parser(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    
     """Command interpreter class for AirBnB program"""
 
     prompt = '(hbnb) '
@@ -49,9 +42,9 @@ class HBNBCommand(cmd.Cmd):
                  "City", "Amenity", "Place", "Review"}
 
     def default(self, arg):
-        
-        """Parses different inputs and matches them to the corresponding methods"""
-
+        """
+        Parses different inputs and matches them to the corresponding methods
+        """
         method_dict = {
             "all": self.do_all,
             "show": self.do_show,
@@ -84,42 +77,37 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_emptyline(self):
-        
         """Executes nothing when no command is passed to the interpreter"""
         pass
 
     def help_emptyline(self):
-        
         """Help output for the emptyline command"""
         print("Executes nothing when no command is entered")
         print()
 
     def do_EOF(self, arg):
-        
         """EOF(end_of_file) command to exit the program"""
         print()
         return True
 
     def help_EOF(self):
-        
         """Help output for the EOF command"""
         print("Exits the program when Ctrl-D(EOF) is entered")
         print()
 
     def do_quit(self, arg):
-        
         """Quit command to exit the program"""
         return True
 
     def help_quit(self):
-        
         """Help output for the quit command"""
         print("Exits the program")
         print()
 
     def do_create(self, arg):
-        
-        """Creates a new instance of a class, saves it and prints the id"""
+        """
+        Creates a new instance of a class, saves it and prints the id
+        """
         line = arg.split()
         if len(line) == 0:
             print("** class name missing **")
@@ -132,14 +120,14 @@ class HBNBCommand(cmd.Cmd):
                 print("{}".format(new_inst.id))
 
     def help_create(self):
-        
         """Help output for the create command"""
         print("Creates a new instance of a class, saves it and prints the id")
         print()
 
     def do_show(self, arg):
-        
-        """Prints string representation of an instance based on class name and id"""
+        """
+        Prints string representation of an instance based on class name and id
+        """
         line = arg.split()
         if len(line) == 0:
             print("** class name missing **")
@@ -160,15 +148,16 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def help_show(self):
-        
         """Help output for the show command"""
         print("Prints string representation of an instance\
  based on class name and id")
         print()
 
     def do_all(self, arg):
-        
-        """Prints all string representation of all instances based/not on the class name"""
+        """
+        Prints all string representation of all instances
+ based/not on the class name
+        """
         line = arg.split()
         inst_list = []
         if len(line) == 0:
@@ -185,16 +174,16 @@ class HBNBCommand(cmd.Cmd):
             print(inst_list)
 
     def help_all(self):
-        
         """Help output for the all command"""
         print("Prints all string representation of all instances\
  based/not on the class name")
         print()
 
     def do_destroy(self, arg):
-        
-        """Deletes an instance based on the class name and id
-        (save the change into the JSON file)"""
+        """
+        Deletes an instance based on the class name and id
+        (save the change into the JSON file)
+        """
         line = arg.split()
         if len(line) == 0:
             print("** class name missing **")
@@ -216,16 +205,16 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def help_destroy(self):
-        
         """Help output for the destroy command"""
         print("Deletes an instance based on the class name and id\
  (save the change into the JSON file)")
         print()
 
     def do_update(self, arg):
-        
-        """Updates an instance based on the class name and id by
-        adding or updating attribute (save the change into the JSON file)"""
+        """
+        Updates an instance based on the class name and id by
+        adding or updating attribute (save the change into the JSON file)
+        """
         match = re.search(r"{(.*)}", arg) # Finding the dictionary in the arguments
         if match is not None:
             line = arg[:match.span()[0]].split() # Splitting arg upto where the dictionary starts
@@ -273,14 +262,12 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def help_update(self):
-        
         """Help output for the update command"""
         print("Updates an instance based on the class name and id by\
  adding or updating attribute (save the change into the JSON file)")
         print()
 
     def do_count(self, arg):
-        
         """Count number of instances of a class"""
         count = 0
         line = arg.split()
@@ -297,7 +284,6 @@ class HBNBCommand(cmd.Cmd):
                 print(count)
 
     def help_count(self):
-        
         """Help output for the count command"""
         print("Counts the number of instances of a class")
         print()
