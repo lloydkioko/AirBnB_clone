@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-
-""" It Defines Amenity Class """
-
+""" Defines Amenity Class """
 from models.base_model import BaseModel
 
-class Amenity(BaseModel):
 
-    """ It initializes class attributes """
+class Amenity(BaseModel):
+    """ Initializes class attributes """
     name = ""
